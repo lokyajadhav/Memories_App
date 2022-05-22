@@ -1,17 +1,24 @@
 // impprting dotenv
-require("dotenv").config();
+//require("dotenv").config();
+import dotenv from "dotenv"
+dotenv.config();
+//const bodyParser = require("body-parser");
+import bodyParser from "body-parser";
+//const cors=require("cors")
 
-const bodyParser = require("body-parser");
-const cors=require("cors")
-const { json } = require("body-parser");
+import cors from "cors";
+//import { json } from "body-parser";
 
-const express=require("express");
-
-const mongoose=require("mongoose");
-
-const { connect } = require("mongoose");
+//const express=require("express");
+import express from "express";
+//const mongoose=require("mongoose");
+import mongoose from "mongoose";
+//import { connect } from "mongoose";
 
 const memories=express();
+import router from "./routes/post.js";
+
+memories.use('/posts',router);
 
 memories.use(bodyParser.json({limit:"30mb",extended:"true"}));
 memories.use(bodyParser.urlencoded({limit:"30mb",extended:"true"}));
